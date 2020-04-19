@@ -1,7 +1,7 @@
 // ----- pkg -----
 const fs           = require('fs');
-//const http         = require('http');
-const https        = require('https');
+const http         = require('http');
+//const https        = require('https');
 const express      = require('express');
 const cookieParser = require('cookie-parser');
 
@@ -12,7 +12,7 @@ var credentials = {key: privateKey, cert: certificate};
 var app = express();
 
 //var httpServer = http.createServer(app);
-//httpServer.listen(process.env.PORT || 5000);
+httpServer.listen(process.env.PORT || 5000);
 
 var httpsServer = https.createServer(credentials, app);
 httpsServer.listen(process.env.PORT || 5000);
