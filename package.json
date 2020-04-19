@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "x.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +18,6 @@
     "http": "0.0.1-security",
     "jquery": "^3.4.1"
   },
-  "start": "node server/app.js",
   "devDependencies": {},
   "description": ""
 }
