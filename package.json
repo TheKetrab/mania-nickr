@@ -17,6 +17,7 @@
     "http": "0.0.1-security",
     "jquery": "^3.4.1"
   },
+  "start": "node server/app.js",
   "devDependencies": {},
   "description": ""
 }
