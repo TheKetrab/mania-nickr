@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>ManiaPlanet Nickr</title>
+    <link href='https://fonts.googleapis.com/css?family=Noticia+Text' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> <!-- TODO ! -->
+    <link rel="shortcut icon" href="NickrManiaPlanet.png" type="image/x-icon" /> <!-- TODO ! -->
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet'>
+
+</head>
+
+<body>
+
+    <main class="p-3 shadow" style="position:relative;">
+        <div style="position: absolute; top: 10px; right: 10px;">
+            created by
+            <span style="font-weight: bold; color: rgb(255, 255, 255);">&#1090;&#1084;&#1093;</span><span style="font-weight: bold; color: rgb(0, 0, 0);">&raquo;</span><span style="font-weight: bold; color: rgb(255, 255, 255);">&#1185;&epsilon;&tau;&#1103;&alpha;&#1074;</span><span style="font-weight: bold; color: rgb(0, 80, 40)">'</span>
+        </div>
+        <div>
+            <img src="NickrManiaPlanet.png" width="75" height="75">
+            <span style="font-size: 2em; text-shadow: 2px 2px 4px #393838;">ManiaPlanet Nickr</span>
+
+        </div>
+        <div class="container bigbox" id="modifier">
+            <!-- text format -->
+            <div id="properties" class="">
+                <div class="m-0 p-0 d-flex">
+                    <div class="checker my-auto">
+                        <input type="radio" id="prop-narrow" name="prop-wideness" value="narrow">
+                        <label class="m-0" for="prop-narrow">narrow</label><br/>
+                        <input type="radio" id="prop-normal" name="prop-wideness" value="normal">
+                        <label class="m-0" for="prop-normal">normal</label><br/>
+                        <input type="radio" id="prop-wide" name="prop-wideness" value="wide">
+                        <label class="m-0" for="prop_wide">wide</label><br/>
+                    </div>
+                    <div class="checker my-auto">
+                        <input type="checkbox" id="prop-bold" name="prop-bold" value="bold">
+                        <label class="m-0"for="prop-bold">bold</label><br/>
+                        <input type="checkbox" id="prop-italic" name="prop-italic" value="italic">
+                        <label class="m-0" for="prop-italic">italic</label><br/>
+                        <input type="checkbox" id="prop-shadow" name="prop-shadow" value="shadow">
+                        <label class="m-0" for="prop-shadow">shadow</label><br/>
+                    </div>
+                </div>
+                <!-- color -->
+                <div class="m-0 p-0 d-flex">
+                    <div id="picker" class="color-checker mx-2 px-0 my-auto"></div>
+                    <div class="d-flex mx-2 my-auto">
+                        <div class="d-flex flex-column px-2">
+                            <label class="text-right font-weight-bold">HEX:</label>
+                            <label class="text-right font-weight-bold">RGB:</label>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <input id="color-hex-input" class="" type="text">
+                            <div id="rgb-inputs" class="d-flex">
+                                <input id="rgb-inputs-red" class="input-flexible flex-grow-1" type="number" min="0" max="255">
+                                <input id="rgb-inputs-green" class="input-flexible flex-grow-1" type="number" min="0" max="255">
+                                <input id="rgb-inputs-blue" class="input-flexible flex-grow-1" type="number" min="0" max="255">
+                            </div>
+                            <button id="button-apply-color">Apply color</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div id="nick-edit  " class="">
+                <div class="my-1">
+                    <label class="m-0">Text: </label>
+                    <div id="input-text" contenteditable="true" class="single-line"></div>
+                    <input type="hidden" id="hidden">
+                </div>
+                <div class="my-1">
+                    <label class="m-0">Code:</label>
+                    <span id="input-nadeo-warning" style="position: relative;">
+                        <span id="input-nadeo-warning-text"></span>
+                        <div id="input-nadeo-warning-info">
+                            <span class="font-weight-bold">Generated code might be too long!</span>
+                            <span>If you're generating the code</span>
+                            <span>for MediaTracker - it's fine.</span>
+                            <span>Otherwise - check out the limits:</span>
+                            <div>
+                                <table>
+                                <tr><th>MP Nick</th><th>MP Map</th><th>TM Nick</th><th>TM Map</th></tr>
+                                <tr><td>60</td><td>60</td><td>45</td><td>60</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                    </span>
+                    <div id="input-nadeo" class="d-flex flex-row">
+                        <input id="input-nadeo-input" readonly="true" type="text" placeholder="Paste the code to ManiaPlanet" class="flex-grow-1">
+                        <button onclick="copyToClipboard()">copyToClipboard</button>
+                    </div>
+                </div>
+                <div class="my-1">
+                    <label class="m-0">Result:</label>
+                    <div id="result" class="single-line"></div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div class="bigbox d-flex flex-column">
+            <span style="font-size: 1.5em;"><b>Special characters</b></span>
+            <select id="specialCharacters"></select>
+
+            <div id="characters" class="flex-grow-1">
+
+            </div>
+        </div>
+
+
+
+
+        <div id="footer">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick" />
+                <input type="hidden" name="hosted_button_id" value="QEM6B9Z67JKGS" />
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                <!-- <img alt="" border="0" src="https://www.paypal.com/en_PL/i/scr/pixel.gif" width="1" height="1" /> -->
+            </form>
+            <span>Copyright &copy; 2020 Bartłomiej Grochowski</span>
+        </div>
+
+
+    </main>
+
+
+    <script>
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf('MSIE ');
+        var trident = ua.indexOf('Trident/');
+        if (msie > 0 || trident > 0) {
+            alert("You are using Internet Explorer browser. The website won't work correctly! Please, download other browser.");
+        }
+    </script>
+
+
+    <script src="cookie-notice.js"></script>
+    <script>
+        new cookieNoticeJS({
+            'messageLocales': { 'pl': 'Ta strona wykorzystuje pliki cookie do zapamiętania różnych informacji. Klikając przycisk \'OK\', wyrażasz na to zgodę.' },
+            'buttonBgColor': '#466',
+            'buttonTextColor': '#fff',
+            'noticeBgColor': '#000',
+            'noticeTextColor': '#fff',
+        });
+
+    </script>
+
+    <!-- JS Libs -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+    <script src="https://maniaplanet.github.io/maniaplanet-style-js-parser/bin/mp-style-parser.js"></script>
+
+    <script src="color-picker.js"></script>
+    <script src="text-input.js"></script>
+    <script src="info.js"></script>
+    <script src="x.js"></script>
+
+
+
+
+
+
+</body>
+
+
+
+</html>
