@@ -15,8 +15,8 @@ var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
 
 httpServer.listen(3000);
-//httpsServer.listen(process.env.PORT || 3000);
-httpsServer.listen(3001);
+httpServer.listen(process.env.PORT || 3000);
+//httpsServer.listen(3001);
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
