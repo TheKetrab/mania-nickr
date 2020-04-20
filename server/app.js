@@ -45,12 +45,12 @@ const visitorsPath = 'server/visitors.txt';
 function addVisitor() {
     var num = fs.readFileSync(visitorsPath, 'utf8');
     num = +num + 1;
-    fs.writeFileSync(visitorsPath,num);
+    fs.writeFileSync(visitorsPath,num.toString() + '\n');
 }
 
 const doonorsPath = 'server/donoors.txt';
 function addDonoor() {
     var num = fs.readFileSync(doonorsPath, 'utf8');
     num = +num + 1;
-    fs.writeFileSync(doonorsPath,num);
+    fs.writeFileSync(doonorsPath,num.toString() + '\n');
 }
