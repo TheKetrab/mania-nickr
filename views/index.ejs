@@ -77,7 +77,7 @@
             <div id="nick-edit  " class="">
                 <div class="my-1">
                     <label class="m-0">Text: </label>
-                    <div id="input-text" contenteditable="true" class="single-line"></div>
+                    <div id="input-text" contenteditable="true" class="single-line"><%- locals.savedNick %></div>
                     <input type="hidden" id="hidden">
                 </div>
                 <div class="my-1">
@@ -125,11 +125,10 @@
 
 
         <div id="footer">
-            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <form action="/donate" method="post" target="blank">
                 <input type="hidden" name="cmd" value="_s-xclick" />
                 <input type="hidden" name="hosted_button_id" value="QEM6B9Z67JKGS" />
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                <!-- <img alt="" border="0" src="https://www.paypal.com/en_PL/i/scr/pixel.gif" width="1" height="1" /> -->
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
             </form>
             <span>Copyright &copy; 2020 Bartłomiej Grochowski</span>
         </div>
@@ -167,6 +166,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
     <script src="https://maniaplanet.github.io/maniaplanet-style-js-parser/bin/mp-style-parser.js"></script>
+    <script src="jquery.cookie.js"></script>
+
 
     <script src="color-picker.js"></script>
     <script src="text-input.js"></script>

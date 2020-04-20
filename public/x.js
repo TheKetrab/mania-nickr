@@ -43,14 +43,10 @@ $("#input-nadeo").keyup(function() {
 function updateResult() {
     var val = $("#input-nadeo-input").val();
     $("#result").html(MPStyle.Parser.toHTML(val));
+
+    // save text-input in cookie
+    $.cookie('nick', $("#input-text").html() );
 }
-
-
-
-
-
-
-
 
 
 // --------------------------------------------------------------------------------------------
@@ -113,4 +109,8 @@ function initSpecialCharacters() {
 
 
 initSpecialCharacters();
+updateNadeoInput();
+updateResult();
+
+
 

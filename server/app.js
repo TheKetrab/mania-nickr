@@ -25,7 +25,32 @@ app.use(cookieParser());
 
 app.get("/", (req, res) => {
     var savedNick = req.cookies['nick'];
+    var visited = req.cookies['visited'];
+    if (!visited) {
+        addVisitor();
+        res.cookie('visited',true,{maxAge: 900000}) // 1000*60*15=15min
+    }
     res.render('index', { savedNick } );
 });
 
+app.post("/donate", (req, res) => {
+    addDonoor();
+    res.redirect("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QEM6B9Z67JKGS&source=url");
+});
+
 console.log("Server set up.");
+
+
+const visitorsPath = 'server/visitors.txt';
+function addVisitor() {
+    var num = fs.readFileSync(visitorsPath, 'utf8');
+    num = +num + 1;
+    fs.writeFileSync(visitorsPath,num);
+}
+
+const doonorsPath = 'server/donoors.txt';
+function addDonoor() {
+    var num = fs.readFileSync(doonorsPath, 'utf8');
+    num = +num + 1;
+    fs.writeFileSync(doonorsPath,num);
+}

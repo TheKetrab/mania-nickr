@@ -255,6 +255,7 @@ $("#input-text").on("input", function (){
 
     updateNadeoInput();
     updateResult();
+
 });
 
 
