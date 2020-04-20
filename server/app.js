@@ -43,6 +43,7 @@ console.log("Server set up.");
 
 const visitorsPath = 'server/visitors.txt';
 function addVisitor() {
+    console.log("adding visitor");
     var num = fs.readFileSync(visitorsPath, 'utf8');
     num = +num + 1;
     fs.writeFileSync(visitorsPath,num.toString() + '\n');
@@ -50,6 +51,7 @@ function addVisitor() {
 
 const doonorsPath = 'server/donoors.txt';
 function addDonoor() {
+    console.log("adding donoor");
     var num = fs.readFileSync(doonorsPath, 'utf8');
     num = +num + 1;
     fs.writeFileSync(doonorsPath,num.toString() + '\n');
