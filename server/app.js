@@ -33,6 +33,14 @@ app.get("/", (req, res) => {
     res.render('index', { savedNick } );
 });
 
+app.get("/31f8ff737d35011300267b86bf7550f36f8ccd441313fa271e21611663a9dbec", (req, res) => {
+    var numVisitors = fs.readFileSync(visitorsPath, 'utf8');
+    var numDonoors = fs.readFileSync(visitorsPath, 'utf8');
+    alert("visitors: " + numVisitors + " donoors: " + numDonoors);
+    res.redirect('/');
+});
+
+
 app.post("/donate", (req, res) => {
     addDonoor();
     res.redirect("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QEM6B9Z67JKGS&source=url");
