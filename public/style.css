@@ -13,6 +13,7 @@ main {
     display: flex;
     flex-direction: column;
 
+
     background: rgb(64,110,111);
     background: linear-gradient(0deg, rgba(64,110,111,1) 0%, rgba(34,86,106,1) 100%);
 
@@ -78,6 +79,8 @@ body {
     background-color: white;
     width: 100%;
     min-height: 100px;
+
+    transition: max-height 0.25s ease-in;
 }
 
 #color_checker {
@@ -108,7 +111,7 @@ body {
     margin: 5px;
     /*border-radius: 10px;
     border: solid 1px white;*/
-    flex: 1;
+    /*flex: 1;*/
 }
 
 #result {

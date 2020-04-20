@@ -14,9 +14,15 @@ function numberGuard() {
 
 
 
-
-
-
+// TODO gradient text
+// rgb color for [dec,dec,dec] objects
+function computeRgbColor(color1,color2,percent) {
+    return {
+        red: color1.red + Math.floor(percent * (color2.red - color1.red)),
+        green: color1.green + Math.floor(percent * (color2.green - color1.green)),
+        blue: color1.blue + Math.floor(percent * (color2.blue - color1.blue))
+    }
+}
 
 
 
@@ -86,11 +92,29 @@ function modifyLetters(checker,cssProp,valueOn,valueOff) {
 }
 
 
+var propNarrow = document.getElementById("prop-narrow");
+var propNormal = document.getElementById("prop-normal");
+var propWide = document.getElementById("prop-wide");
+
+propNarrow.addEventListener("change",function() { setWideness('-.1em','95%'); updateNadeoInput(); updateResult(); });
+propNormal.addEventListener("change",function() { setWideness('',''); updateNadeoInput(); updateResult(); });
+propWide.addEventListener("change",function() { setWideness('.1em','105%'); updateNadeoInput(); updateResult(); });
+function setWideness(letterSpacing,fontSize) {
+    var chars = getSelectedSpans();
+    if (chars == null) return;
+    for (let span of chars) {
+        $(span).css("letter-spacing", letterSpacing);
+        $(span).css("font-size", fontSize);
+    }
+    debugger;
+}
+
+
 
 // style object
 const emptyStyleObject = {
-    style: "normal", // wide | narrow | normal
-    color: "", // eg. $fff (3-digit hex)
+    style: 'normal', // wide | narrow | normal
+    color: '', // eg. $fff (3-digit hex)
     bold: false,
     italic: false,
     shadow: false
@@ -108,12 +132,20 @@ function getNadeoColor(span) {
 function isEmpty(str) {
     return (!str || 0 === str.length);
 }
+
+
+function getWideness(span) {
+    if (span.style.fontSize == '105%') return 'wide';
+    if (span.style.fontSize == '95%') return 'narrow';
+    return 'normal';
+}
+
 function getStyleObject(span) {
     var color = getNadeoColor(span);
-    var style = "normal"; // TODO
+    var style = getWideness(span); // TODO
     var bold = span.style.fontWeight == 'bold' ? true : false;
     var italic = span.style.fontStyle == 'italic' ? true : false;
-    var shadow = !isEmpty(span.style.textShadow);
+    var shadow = span.style.textShadow != 'none' && span.style.textShadow != '';
     return { color, style, bold, italic, shadow };
 }
 
@@ -126,10 +158,19 @@ function getNadeoInput() {
     for (let span of spans) {
         if (span.nodeName != "SPAN") continue;
         let temp = getStyleObject(span);
+
+        if (previous.style != temp.style) {
+            if (temp.style == 'normal') {
+                result += '$g'; // $g completely resets!
+                previous = emptyStyleObject; // reset previous object
+            }
+            else if (temp.style == 'wide') result += '$w';
+            else if (temp.style == 'narrow') result += '$n';
+        }
+
         if (previous.bold != temp.bold) result += '$o';
         if (previous.italic != temp.italic) result += '$i';
         if (previous.shadow != temp.shadow) result += '$s';
-        // TODO style
         if (previous.color != temp.color) {
             if (temp.color == "") result += '$g';
             else result += temp.color;
@@ -146,9 +187,7 @@ function getNadeoInput() {
     }
 
     return result;
-
 }
-
 
 
 
@@ -192,11 +231,6 @@ $("#input-text").on("beforeinput", function(e) {
 
 // following that solution:
 // https://stackoverflow.com/questions/21654928#21655016
-
-// TODO exit if inserted char is ENTER
-// TODO filter insert only text
-
-
 
 $("#input-text").on("input", function (){
     var loc = getCaretLocation(this);
