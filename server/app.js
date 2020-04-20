@@ -33,11 +33,11 @@ app.get("/", (req, res) => {
     res.render('index', { savedNick } );
 });
 
-app.get("/31f8ff737d35011300267b86bf7550f36f8ccd441313fa271e21611663a9dbec", (req, res) => {
+app.get("/31f8ff737d3501130026", (req, res) => {
     var numVisitors = fs.readFileSync(visitorsPath, 'utf8');
-    var numDonoors = fs.readFileSync(visitorsPath, 'utf8');
-    alert("visitors: " + numVisitors + " donoors: " + numDonoors);
-    res.redirect('/');
+    var numDonoors = fs.readFileSync(doonorsPath, 'utf8');
+    var msg = `visitors: ${+numVisitors} donoors: ${+numDonoors}`;
+    res.render('index',{ msg });
 });
 
 
