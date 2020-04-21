@@ -3,6 +3,7 @@ const fs           = require('fs');
 const http         = require('http');
 //const https        = require('https');
 const express      = require('express');
+const expressip    = require('express-ip');
 const cookieParser = require('cookie-parser');
 
 var privateKey  = fs.readFileSync('server/cert/key.pem', 'utf8');
@@ -19,24 +20,28 @@ httpServer.listen(process.env.PORT || 5000);
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
+app.use(expressip().getIpInfoMiddleware);
 app.use(express.urlencoded( { extended:true } ));
 app.use(express.static( 'public' ))
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
-    var savedNick = req.cookies['nick'];
     var visited = req.cookies['visited'];
     if (!visited) {
-        addVisitor();
+        let country = req.ipInfo['country'];
+        let date = getDate();
+        addVisitor(date,country);
         res.cookie('visited',true,{maxAge: 900000}) // 1000*60*15=15min
     }
+
+    var savedNick = req.cookies['nick'];
     res.render('index', { savedNick } );
 });
 
 app.get("/31f8ff737d3501130026", (req, res) => {
-    var numVisitors = fs.readFileSync(visitorsPath, 'utf8');
-    var numDonoors = fs.readFileSync(doonorsPath, 'utf8');
-    var msg = `visitors: ${+numVisitors} donoors: ${+numDonoors}`;
+    var visitors = fs.readFileSync(visitorsPath, 'utf8');
+    var donoors = fs.readFileSync(donoorsPath, 'utf8');
+    var msg = `visitors:${visitors}donoors: ${donoors}`;
     res.render('index',{ msg });
 });
 
@@ -49,20 +54,39 @@ app.post("/donate", (req, res) => {
 console.log("Server set up.");
 
 
-const visitorsPath = 'server/visitors.txt';
-function addVisitor() {
+const visitorsPath = 'server/visitors.json';
+function addVisitor(date,country) {
+
+    if (!country) country = "UNKNOWN";
+    if (!date) date = "UNKNOWN";
+
     console.log("adding visitor");
-    var num = fs.readFileSync(visitorsPath, 'utf8');
-    num = +num + 1;
-    fs.writeFileSync(visitorsPath,num.toString() + '\n');
-    console.log("added successfully: " + num);
+    var visitors = JSON.parse(fs.readFileSync(visitorsPath, 'utf8'));
+
+    var countryCnt = visitors.Countries[country];
+    if (countryCnt) visitors.Countries[country] = countryCnt+1;
+    else visitors.Countries[country] = 1;
+
+    var dateCnt = visitors.Visitors[date];
+    if (dateCnt) visitors.Visitors[date] = dateCnt+1;
+    else visitors.Visitors[date] = 1;
+
+    fs.writeFileSync(visitorsPath,JSON.stringify(visitors));
 }
 
-const doonorsPath = 'server/donoors.txt';
+const donoorsPath = 'server/donoors.json';
 function addDonoor() {
     console.log("adding donoor");
-    var num = fs.readFileSync(doonorsPath, 'utf8');
-    num = +num + 1;
-    fs.writeFileSync(doonorsPath,num.toString() + '\n');
-    console.log("added successfully: " + num);
+    var donoors = JSON.parse(fs.readFileSync(donoorsPath, 'utf8'));
+    donoors['Donoors'] += 1;
+    fs.writeFileSync(donoorsPath,JSON.stringify(donoors));
+}
+
+
+function getDate() {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    return `${yyyy}/${mm}/${dd}`;
 }
