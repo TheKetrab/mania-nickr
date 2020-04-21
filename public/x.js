@@ -44,10 +44,8 @@ function updateResult() {
     var val = $("#input-nadeo-input").val();
     $("#result").html(MPStyle.Parser.toHTML(val));
 
-    debugger;
     // save text-input in cookie
-    $.cookie('nick', $("#input-text").html() , 2147483647);
-    debugger;
+    $.cookie('nick', $("#input-text").html() , {expires: 2147483647});
 }
 
 
