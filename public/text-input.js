@@ -1,18 +1,52 @@
 /**
- * Each letter is a separate span.
+ * text-input.js
+ *
+ * Handling events connected with modifying text input.
+ * Each letter is a separate span with its own style.
+ * TODO -> gradient text -> computeRgbColor
  */
 
+// variables
+var nadeoInput = document.getElementById("input-nadeo-input")
+var nadeoInputWarning = document.getElementById("input-nadeo-warning");
+var nadeoInputWarningText = document.getElementById("input-nadeo-warning-text");
+var inputText = document.getElementById("input-text");
+var propBold = document.getElementById("prop-bold");
+var propItalic = document.getElementById("prop-italic");
+var propShadow = document.getElementById("prop-shadow");
+var propNarrow = document.getElementById("prop-narrow");
+var propNormal = document.getElementById("prop-normal");
+var propWide = document.getElementById("prop-wide");
 
+// events
+propBold.addEventListener("change",function() { modifyLetters(this,'font-weight','bold','normal'); updateNadeoInput(); updateResult(); });
+propItalic.addEventListener("change",function() { modifyLetters(this,'font-style','italic','normal'); updateNadeoInput(); updateResult(); });
+propShadow.addEventListener("change",function() { modifyLetters(this,'text-shadow', '1px 1px 1px rgba(0, 0, 0, 0.5)','none'); updateNadeoInput(); updateResult(); });
+propNarrow.addEventListener("change",function() { setWideness('-.1em','95%'); updateNadeoInput(); updateResult(); });
+propNormal.addEventListener("change",function() { setWideness('',''); updateNadeoInput(); updateResult(); });
+propWide.addEventListener("change",function() { setWideness('.1em','105%'); updateNadeoInput(); updateResult(); });
 $("#rgb-inputs-red").on("keyup", numberGuard);
 $("#rgb-inputs-green").on("keyup", numberGuard);
 $("#rgb-inputs-blue").on("keyup", numberGuard);
+
+// clipboard - to handle input from paste
+var clipboardData = "";
+document.addEventListener('paste', function (event) {
+    clipboardData = event.clipboardData.getData('Text');
+});
+
+const emptyStyleObject = {
+    style: 'normal', // wide | narrow | normal
+    color: '', // eg. $fff (3-digit hex)
+    bold: false,
+    italic: false,
+    shadow: false
+}
 
 function numberGuard() {
     if (this.value > 255) this.value = 255;
     if (this.value < 0) this.value = 0;
 }
-
-
 
 // TODO gradient text
 // rgb color for [dec,dec,dec] objects
@@ -24,13 +58,6 @@ function computeRgbColor(color1,color2,percent) {
     }
 }
 
-
-
-
-
-var nadeoInput = document.getElementById("input-nadeo-input")
-var nadeoInputWarning = document.getElementById("input-nadeo-warning");
-var nadeoInputWarningText = document.getElementById("input-nadeo-warning-text");
 function updateNadeoInput() {
     nadeoInput.value = getNadeoInput();
     let len = nadeoInput.value.length;
@@ -39,7 +66,6 @@ function updateNadeoInput() {
     else nadeoInputWarning.style.display = "none";
 }
 
-var inputText = document.getElementById("input-text");
 function getSelectedSpans() {
 
     var sel = document.getSelection();
@@ -74,16 +100,6 @@ function getSelectedSpans() {
     return null;
 }
 
-
-
-
-var propBold = document.getElementById("prop-bold");
-var propItalic = document.getElementById("prop-italic");
-var propShadow = document.getElementById("prop-shadow");
-
-propBold.addEventListener("change",function() { modifyLetters(this,'font-weight','bold','normal'); updateNadeoInput(); updateResult(); });
-propItalic.addEventListener("change",function() { modifyLetters(this,'font-style','italic','normal'); updateNadeoInput(); updateResult(); });
-propShadow.addEventListener("change",function() { modifyLetters(this,'text-shadow', '1px 1px 1px rgba(0, 0, 0, 0.5)','none'); updateNadeoInput(); updateResult(); });
 function modifyLetters(checker,cssProp,valueOn,valueOff) {
     var chars = getSelectedSpans();
     if (chars == null) return;
@@ -91,14 +107,6 @@ function modifyLetters(checker,cssProp,valueOn,valueOff) {
     else for (let span of chars) $(span).css(cssProp,valueOff);
 }
 
-
-var propNarrow = document.getElementById("prop-narrow");
-var propNormal = document.getElementById("prop-normal");
-var propWide = document.getElementById("prop-wide");
-
-propNarrow.addEventListener("change",function() { setWideness('-.1em','95%'); updateNadeoInput(); updateResult(); });
-propNormal.addEventListener("change",function() { setWideness('',''); updateNadeoInput(); updateResult(); });
-propWide.addEventListener("change",function() { setWideness('.1em','105%'); updateNadeoInput(); updateResult(); });
 function setWideness(letterSpacing,fontSize) {
     var chars = getSelectedSpans();
     if (chars == null) return;
@@ -106,18 +114,6 @@ function setWideness(letterSpacing,fontSize) {
         $(span).css("letter-spacing", letterSpacing);
         $(span).css("font-size", fontSize);
     }
-    debugger;
-}
-
-
-
-// style object
-const emptyStyleObject = {
-    style: 'normal', // wide | narrow | normal
-    color: '', // eg. $fff (3-digit hex)
-    bold: false,
-    italic: false,
-    shadow: false
 }
 
 function getNadeoColor(span) {
@@ -133,7 +129,6 @@ function isEmpty(str) {
     return (!str || 0 === str.length);
 }
 
-
 function getWideness(span) {
     if (span.style.fontSize == '105%') return 'wide';
     if (span.style.fontSize == '95%') return 'narrow';
@@ -142,7 +137,7 @@ function getWideness(span) {
 
 function getStyleObject(span) {
     var color = getNadeoColor(span);
-    var style = getWideness(span); // TODO
+    var style = getWideness(span);
     var bold = span.style.fontWeight == 'bold' ? true : false;
     var italic = span.style.fontStyle == 'italic' ? true : false;
     var shadow = span.style.textShadow != 'none' && span.style.textShadow != '';
@@ -150,15 +145,12 @@ function getStyleObject(span) {
 }
 
 function getNadeoInput() {
-
     var spans = inputText.childNodes;
     var result = "";
-
     let previous = emptyStyleObject;
     for (let span of spans) {
         if (span.nodeName != "SPAN") continue;
         let temp = getStyleObject(span);
-
         if (previous.style != temp.style) {
             if (temp.style == 'normal') {
                 result += '$g'; // $g completely resets!
@@ -189,14 +181,6 @@ function getNadeoInput() {
     return result;
 }
 
-
-
-var clipboardData = "";
-document.addEventListener('paste', function (event) {
-    clipboardData = event.clipboardData.getData('Text');
-});
-
-
 $("#input-text").on("beforeinput", function(e) {
 
     // insertText | deleteContentBackward | insertFromPaste | insertParagraph (enter) | deleteByCut
@@ -224,12 +208,10 @@ $("#input-text").on("beforeinput", function(e) {
         updateResult();
         e.preventDefault(); // cancel event!
     }
-
 });
 
-
-
-// following that solution:
+// ------------------------------------------------------ //
+// HANDLE INPUT: following that solution:
 // https://stackoverflow.com/questions/21654928#21655016
 
 $("#input-text").on("input", function (){
@@ -252,15 +234,9 @@ $("#input-text").on("input", function (){
         }
     });
     setCaretLocation(this, loc);
-
     updateNadeoInput();
     updateResult();
-
 });
-
-
-
-
 
 function setCaretLocation(ele, pos){
     if (pos == 0) return;
@@ -279,3 +255,5 @@ function getCaretLocation(element) {
         preCaretRange.setEnd(range.startContainer, range.startOffset);
     return preCaretRange.toString().length;
 }
+
+// ------------------------------------------------------ //

@@ -5,6 +5,8 @@ main {
 
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(27, 25, 25);
+    position: relative;
+
     margin-left: auto;
     margin-right: auto;
     width: 720px;
@@ -13,7 +15,6 @@ main {
     display: flex;
     flex-direction: column;
 
-
     background: rgb(64,110,111);
     background: linear-gradient(0deg, rgba(64,110,111,1) 0%, rgba(34,86,106,1) 100%);
 
@@ -21,6 +22,22 @@ main {
     border-left: 1px solid rgb(49, 44, 44);
     border-top:  0px;
     border-bottom:   0px;
+}
+
+#creator-info {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#logo-title {
+    font-size: 2em;
+    text-shadow: 2px 2px 4px #393838;
+}
+
+#special-characters-title {
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 button {
@@ -209,6 +226,6 @@ body {
 
 
 
-#footer {
+footer {
     text-align: center;
 }

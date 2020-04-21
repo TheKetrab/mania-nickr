@@ -1,70 +1,62 @@
+/**
+ * color-picker.js
+ *
+ * Nickr uses IRO color picker widget: https://iro.js.org/
+ * Here is the implementation for ManiaNickr
+ */
+
 var colorPicker = new iro.ColorPicker('#picker', {
-    layout: [
-      {
-        component: iro.ui.Box,
-        options: {
-            width: 100,
-            handleRadius: 5,
-            borderWidth: 1,
-            borderColor: "#222"
-        }
-      },
-      {
-          component: iro.ui.Slider,
-          options: {
-            borderWidth: 1,
-            borderColor: "#222",
-            sliderSize: 10,
-            handleRadius: 5,
-            width: 100,
-            sliderType: "value",
-            layoutDirection: "horizontal"
-          }
-      },
-      {
-        component: iro.ui.Slider,
-        options: {
-          borderWidth: 1,
-          borderColor: "#222",
-          sliderSize: 10,
-          handleRadius: 5,
-          width: 100,
-          sliderType: "saturation",
-          layoutDirection: "horizontal"
-        }
+  display: "flex",
+  layout: [
+    {
+      component: iro.ui.Box,
+      options: { width: 100, handleRadius: 5, borderWidth: 1, borderColor: "#222" }
     },
     {
       component: iro.ui.Slider,
       options: {
-        borderWidth: 1,
-        borderColor: "#222",
-        sliderSize: 10,
-        handleRadius: 5,
-        width: 100,
-        sliderType: "hue",
-        layoutDirection: "horizontal"
-
+        borderWidth: 1, borderColor: "#222", sliderSize: 10, handleRadius: 5,
+        width: 100, sliderType: "value", layoutDirection: "horizontal"
       }
     },
+    {
+      component: iro.ui.Slider,
+      options: {
+        borderWidth: 1, borderColor: "#222", sliderSize: 10, handleRadius: 5,
+        width: 100, sliderType: "saturation", layoutDirection: "horizontal"
+      }
+    },
+    {
+      component: iro.ui.Slider,
+      options: {
+        borderWidth: 1, borderColor: "#222", sliderSize: 10, handleRadius: 5,
+        width: 100, sliderType: "hue", layoutDirection: "horizontal"
+      }
+    }
+  ]
+});
 
-    ],
-    display: "flex",
-  });
-
+// variables
 var rgbInputsRed = document.getElementById('rgb-inputs-red');
 var rgbInputsGreen = document.getElementById('rgb-inputs-green');
 var rgbInputsBlue = document.getElementById('rgb-inputs-blue');
 var colorHexInput = document.getElementById('color-hex-input');
-colorPicker.on(["color:init", "color:change"], function(color) {
-    rgbInputsRed.value = color.rgb.r;
-    rgbInputsGreen.value = color.rgb.g;
-    rgbInputsBlue.value = color.rgb.b;
-    if (colorHexInput != document.activeElement) colorHexInput.value = color.hexString;
-});
+var buttonApplyColor = document.getElementById('button-apply-color');
 
+// events
+colorPicker.on(["color:init", "color:change"], onChangeColor);
+buttonApplyColor.addEventListener("click",setColor);
 $(rgbInputsRed).on("keyup change",updateRgb);
 $(rgbInputsGreen).on("keyup change",updateRgb);
 $(rgbInputsBlue).on("keyup change",updateRgb);
+$(colorHexInput).on("keyup change",updateViaHex);
+
+function onChangeColor(color) {
+  rgbInputsRed.value = color.rgb.r;
+  rgbInputsGreen.value = color.rgb.g;
+  rgbInputsBlue.value = color.rgb.b;
+  if (colorHexInput != document.activeElement) colorHexInput.value = color.hexString;
+}
 
 function updateRgb() {
     colorPicker.color.rgb = {
@@ -74,7 +66,6 @@ function updateRgb() {
     }
 }
 
-$(colorHexInput).on("keyup change",updateViaHex);
 function updateViaHex() {
   this.value = parseHex(this.value);
   var valueChars = this.value.split('');
@@ -113,9 +104,6 @@ function isHexDigit(char) {
   return (ascii>=48 && ascii<=57) || (ascii>=97 && ascii<=102);
 }
 
-// set color
-var buttonApplyColor = document.getElementById('button-apply-color');
-buttonApplyColor.addEventListener("click",setColor);
 function setColor() {
   var chars = getSelectedSpans();
   if (chars == null) return;
