@@ -45,7 +45,7 @@ function updateResult() {
     $("#result").html(MPStyle.Parser.toHTML(val));
 
     // save text-input in cookie
-    $.cookie('nick', $("#input-text").html() , {expires: 2147483647});
+    $.cookie('nick', $("#input-text").html() , {expires: 365});
 }
 
 
