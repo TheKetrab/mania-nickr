@@ -1,14 +1,12 @@
 
-function getCharSet(name,from,to) {
-    let str = `<div id='${name}'>`;
+function getCharSet(name, from, to) {
+    var str = `<div id='${name}'>`;
     str += `<b>${name}</b><br/>`;
     for (let i=parseInt(from); i<=parseInt(to); i++)
         str += `&\#${i}; `;
     str += '</div>';
     return str;
 }
-
-
 
 
 function copyToClipboard() {
@@ -19,22 +17,6 @@ function copyToClipboard() {
     copyText.setSelectionRange(0, 0);
 }
 
-
-
-function f() {
-    alert(1);
-    var range = document.getSelection().getRangeAt(0);
-    console.log(`startContainer: ${range.startContainer}`);
-    console.log(`startOffset: ${range.startOffset}`);
-    console.log(`endContainer: ${range.endContainer}`);
-    console.log(`endOffset: ${range.endOffset}`);
-
-    var fragment = range.extractContents();
-
-    for (let child of fragment.childNodes) {
-        console.log(`${child.nodeType} ${child.nodeName} : ${child.nodeValue}`);
-    }
-}
 
 $("#input-nadeo").keyup(function() {
     updateResult();

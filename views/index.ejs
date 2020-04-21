@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Helpful website for every ManiaPlanet player, who wants to create a great nick or color map name. Generated code can be used for both games: Trackmania and Shootmania." />
+    <meta name="keywords" content="ManiaPlanet,TrackMania,ShootMania,Color,Nick,Map,Name">
+    <meta name="author" content="Ketrab">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="zikHzUP2BPlxqSJznUkXttzV85ikCbGzlcxaLAas8P4" />
 
-    <title>ManiaPlanet Nickr</title>
+    <title>ManiaNickr</title>
     <link href='https://fonts.googleapis.com/css?family=Noticia+Text' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> <!-- TODO ! -->
-    <link rel="shortcut icon" href="NickrManiaPlanet.png" type="image/x-icon" /> <!-- TODO ! -->
+    <link rel="shortcut icon" href="ManiaNickrLogo.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -27,7 +30,7 @@
             <span style="font-weight: bold; color: rgb(255, 255, 255);">&#1090;&#1084;&#1093;</span><span style="font-weight: bold; color: rgb(0, 0, 0);">&raquo;</span><span style="font-weight: bold; color: rgb(255, 255, 255);">&#1185;&epsilon;&tau;&#1103;&alpha;&#1074;</span><span style="font-weight: bold; color: rgb(0, 80, 40)">'</span>
         </div>
         <div>
-            <img src="NickrManiaPlanet.png" width="75" height="75">
+            <img src="ManiaNickrLogo.png" width="75" height="75" alt="Mania Nickr Logo">
             <span style="font-size: 2em; text-shadow: 2px 2px 4px #393838;">ManiaPlanet Nickr</span>
 
         </div>
@@ -41,11 +44,11 @@
                         <input type="radio" id="prop-normal" name="prop-wideness" value="normal">
                         <label class="m-0" for="prop-normal">normal</label><br/>
                         <input type="radio" id="prop-wide" name="prop-wideness" value="wide">
-                        <label class="m-0" for="prop_wide">wide</label><br/>
+                        <label class="m-0" for="prop-wide">wide</label><br/>
                     </div>
                     <div class="checker my-auto">
                         <input type="checkbox" id="prop-bold" name="prop-bold" value="bold">
-                        <label id="prop-bold-label" class="m-0"for="prop-bold">bold</label><br/>
+                        <label id="prop-bold-label" class="m-0" for="prop-bold">bold</label><br/>
                         <input type="checkbox" id="prop-italic" name="prop-italic" value="italic">
                         <label id="prop-italic-label" class="m-0" for="prop-italic">italic</label><br/>
                         <input type="checkbox" id="prop-shadow" name="prop-shadow" value="shadow">
@@ -74,7 +77,7 @@
                 </div>
 
             </div>
-            <div id="nick-edit  " class="">
+            <div id="nick-edit">
                 <div class="my-1">
                     <label class="m-0">Text: </label>
                     <div id="input-text" contenteditable="true" class="single-line"><%- locals.savedNick %></div>
