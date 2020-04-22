@@ -90,3 +90,4 @@ function getDate() {
     var yyyy = today.getFullYear();
     return `${yyyy}/${mm}/${dd}`;
 }
+
