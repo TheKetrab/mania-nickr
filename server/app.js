@@ -5,6 +5,7 @@ const http         = require('http');
 const express      = require('express');
 const expressip    = require('express-ip');
 const cookieParser = require('cookie-parser');
+const { InfinityBlocks } = require('./blocks.js');
 
 var privateKey  = fs.readFileSync('server/cert/key.pem', 'utf8');
 var certificate = fs.readFileSync('server/cert/server.crt', 'utf8');
@@ -36,6 +37,10 @@ app.get("/", (req, res) => {
 
     var savedNick = req.cookies['nick'];
     res.render('index', { savedNick } );
+});
+
+app.get("/infinity", (req, res) => {
+    res.render('infinity', { InfinityBlocks } );
 });
 
 app.get("/31f8ff737d3501130026", (req, res) => {

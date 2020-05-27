@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Helpful website for every ManiaPlanet player, who wants to create a great nick or color map name. Generated code can be used for both games: Trackmania and Shootmania." />
+    <meta name="keywords" content="ManiaPlanet,TrackMania,ShootMania,Color,Nick,Map,Name">
+    <meta name="author" content="Ketrab">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="zikHzUP2BPlxqSJznUkXttzV85ikCbGzlcxaLAas8P4" />
+
+    <title>ManiaNickr</title>
+    <link href='https://fonts.googleapis.com/css?family=Noticia+Text' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="ManiaNickrLogo.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="infinity-style.css">
+    <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet'>
+
+</head>
+
+<body>
+
+    <main class="p-3 shadow">
+        <div>
+            <img src="ManiaNickrLogo.png" width="75" height="75" alt="Mania Nickr Logo">
+            <span id="logo-title">ManiaPlanet Nickr</span>
+        </div>
+        <div class="container bigbox" id="infinity-title">
+          <h2>TrackMania Infinity Blocks Database</h1>
+        </div>
+        <div class="container bigbox" id="block-list">
+          <% for (let block of locals.InfinityBlocks) { %>
+            <div class="block-li">
+              <div class="block-li-scr">
+                <img src="<%= block.screen %>" class="block-li-img"/>
+              </div>
+              <div class="block-li-info">
+                <span class="block-li-name">
+                  <a href="<%= block.link %>"><%= block.name %></a>
+                </span>
+                <span class="block-li-author"><%= block.author %></span>
+                <span class="block-li-pack"><%= block.pack %></span>
+                <span class="block-li-date"><%= block.date %></span>
+              </div>
+            </div>
+          <% } %>
+        </div>
+
+        <!-- footer -->
+        <footer>
+            <form action="/donate" method="post" target="blank">
+                <input type="hidden" name="cmd" value="_s-xclick" />
+                <input type="hidden" name="hosted_button_id" value="QEM6B9Z67JKGS" />
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" title="Help to keep the server online and donate via PayPal." alt="Donate with PayPal button" />
+            </form>
+            <span>Copyright &copy; 2020 Bartłomiej Grochowski</span>
+        </footer>
+
+        <%= locals.msg %>
+
+    </main>
+
+
+    <!-- JS Libs -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="jquery-cookie.js"></script>
+
+    <!-- JS Scripts -->
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164273479-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-164273479-1');
+    </script>
+</body>
+
+
+
+</html>
