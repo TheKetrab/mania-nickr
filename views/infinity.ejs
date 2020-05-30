@@ -14,7 +14,6 @@
     <link href='https://fonts.googleapis.com/css?family=Noticia+Text' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="ManiaNickrLogo.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="infinity-style.css">
     <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet'>
 
@@ -31,12 +30,13 @@
           <h2>TrackMania Infinity Blocks Database</h1>
         </div>
         <div class="container bigbox" id="block-list">
-          <% for (let block of locals.InfinityBlocks) { %>
+          <% for (let i=locals.InfinityBlocks.length-1; i>=0; i--) { %>
+            <% let block = InfinityBlocks[i]; %>
             <div class="block-li">
               <div class="block-li-scr">
                 <img src="<%= block.screen %>" class="block-li-img"/>
               </div>
-              <div class="block-li-info">
+              <div class="block-li-info"">
                 <span class="block-li-name">
                   <a href="<%= block.link %>"><%= block.name %></a>
                 </span>
