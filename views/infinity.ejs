@@ -37,16 +37,20 @@
                 <img src="<%= block.screen %>" class="block-li-img"/>
               </div>
               <div class="block-li-info"">
-                <span class="block-li-name">
+                <span class="block-li-info-item block-li-name">
                   <a href="<%= block.link %>"><%= block.name %></a>
                 </span>
-                <span class="block-li-author"><%= block.author %></span>
-                <span class="block-li-pack"><%= block.pack %></span>
-                <span class="block-li-date"><%= block.date %></span>
+                <span class="block-li-info-item block-li-author"><%= block.author %></span>
+                <span class="block-li-info-item block-li-pack"><%= block.pack %></span>
+                <span class="block-li-info-item block-li-date"><%= block.date %></span>
               </div>
             </div>
           <% } %>
         </div>
+
+        <button class="btn transparent-bg scale-background-on-hover">
+          Hover over me!
+        </button>
 
         <!-- footer -->
         <footer>
