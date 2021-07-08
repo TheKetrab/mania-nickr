@@ -163,6 +163,30 @@ var InfinityBlocks = [
         "18.04.2021",
         "PACK"
     ),
+    new Block(
+        "StadiumPlatformLoopStartCorner",
+        "St1ngLeR",
+        "/blockimages/StadiumPlatformLoopStartCorner.png",
+        "/blocks/StadiumPlatformLoopStartCorner.zip",
+        "28.06.2021",
+        "BLOCK"
+    ),
+    new Block(
+        "Coconut Mall",
+        "LinuxCat",
+        "",
+        "/blocks/Coconut_Mall.zip",
+        "02.07.2021",
+        "BLOCK"
+    ),
+    new Block(
+        "Numbers",
+        "LinuxCat",
+        "/blockimages/Numbers.png",
+        "/blocks/Numbers.zip",
+        "06.07.2021",
+        "BLOCK"
+    ),
 ];
 
 module.exports = { InfinityBlocks };
