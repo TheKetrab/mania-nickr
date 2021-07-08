@@ -185,7 +185,7 @@ var InfinityBlocks = [
         "/blockimages/Numbers.png",
         "/blocks/Numbers.zip",
         "06.07.2021",
-        "BLOCK"
+        "PACK"
     ),
 ];
 
