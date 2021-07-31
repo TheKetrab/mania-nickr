@@ -159,7 +159,7 @@ var InfinityBlocks = [
         "Ramps",
         "St1ngLeR",
         "/blockimages/Ramps.png",
-        "/blocks/Ramps.zip",
+        "/blocks/Stadium_Fabric_Ramps.zip",
         "18.04.2021",
         "PACK"
     ),
