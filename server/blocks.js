@@ -150,7 +150,7 @@ var InfinityBlocks = [
     new Block(
         "Holes",
         "St1ngLeR",
-        "Holes.png",
+        "/blockimages/Holes.png",
         "/blocks/Holes.zip",
         "17.04.2021",
         "PACK"
