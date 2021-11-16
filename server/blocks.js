@@ -134,7 +134,7 @@ var InfinityBlocks = [
     new Block(
         "sausage1",
         "St1ngLeR",
-        "",
+        "/blockimages/Sausage.png",
         "/blocks/sausage1.zip",
         "17.04.2021",
         "PACK"
@@ -150,7 +150,7 @@ var InfinityBlocks = [
     new Block(
         "Holes",
         "St1ngLeR",
-        "",
+        "Holes.png",
         "/blocks/Holes.zip",
         "17.04.2021",
         "PACK"
@@ -185,6 +185,22 @@ var InfinityBlocks = [
         "/blockimages/Numbers.png",
         "/blocks/Numbers.zip",
         "06.07.2021",
+        "PACK"
+    ),
+    new Block(
+        "IceRoad",
+        "LinuxCat",
+        "/blockimages/IceRoad.png",
+        "/blocks/IceRoad.zip",
+        "16.11.2021",
+        "PACK"
+    ),
+    new Block(
+        "Platforms",
+        "LinuxCat",
+        "/blockimages/Platforms.png",
+        "/blocks/Platforms.zip",
+        "16.11.2021",
         "PACK"
     ),
 ];
