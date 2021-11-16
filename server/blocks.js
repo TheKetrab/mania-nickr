@@ -127,7 +127,7 @@ var InfinityBlocks = [
         "LinuxCat_Blocks",
         "LinuxCat",
         "",
-        "/blocks/LinuxCats_Blocks.zip",
+        "/blocks/LinuxCat_Blocks.zip",
         "2.11.2020",
         "PACK"
     ),
