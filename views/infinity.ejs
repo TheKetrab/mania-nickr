@@ -13,49 +13,62 @@
     <title>ManiaNickr</title>
     <link href='https://fonts.googleapis.com/css?family=Noticia+Text' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="ManiaNickrLogo.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="infinity-style.css">
     <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet'>
 
 </head>
 
 <body>
+  <div class="bckgr">
+  </div>
 
-    <main class="p-3 shadow">
-        <div>
-            <img src="ManiaNickrLogo.png" width="75" height="75" alt="Mania Nickr Logo">
-            <span id="logo-title">ManiaPlanet Nickr</span>
+    <main>
+      <header>
+        <div class="manianickr-logo">
+          <img src="ManiaNickrLogo.png" alt="Mania Nickr Logo">
+          <h1 id="logo-title"><a href="./">ManiaPlanet Nickr</a></h1>
+      </div>
+      <div class="infinity-logo">
+          <img src="/tmnf-logo.png"/>
+          <h1>TM Infinity</h1>
         </div>
-        <div class="container bigbox" id="infinity-title">
-          <h2>TrackMania Infinity Blocks Database</h1>
-        </div>
-        <div class="container bigbox" id="block-list">
+      </header>
+      <% var overall = 0 %>
+      <h2 class="the-title">TrackMania Infinity Blocks Database <span id="overall-blocks"></span></h1>
+        <div class="my-table">
           <% for (let i=locals.InfinityBlocks.length-1; i>=0; i--) { %>
             <% let block = InfinityBlocks[i]; %>
-            <div class="block-li">
-              <div class="block-li-scr">
-                <img src="<%= block.screen %>" class="block-li-img"/>
+            <div class="my-row">
+              <div class="popup">
+                <div class="big-screen">
+                  <img src="<%= block.screen %>"/>
+                </div>
+                <div class="contain-details-outer">
+                <div class="contain-details">
+                  <% for (let j=0; j<locals.InfinityBlocks[i].containList.length; j++) { %>
+                    <span><%= InfinityBlocks[i].containList[j] %></span><% } %>
+                </div>
+                </div>
               </div>
-              <div class="block-li-info"">
-                <span class="block-li-info-item block-li-name">
-                  <a href="<%= block.link %>"><%= block.name %></a>
-                </span>
-                <span class="block-li-info-item block-li-author"><%= block.author %></span>
-                <span class="block-li-info-item block-li-pack"><%= block.pack %></span>
-                <span class="block-li-info-item block-li-date"><%= block.date %></span>
-              </div>
-            </div>
+              <div class="my-col img"><img width="10px" height="10px" src="<%= block.screen %>"/></div>
+              <div class="my-col name"><a href="<%= block.link %>"><%= block.name %></a></div>
+              <div class="my-col author"><span><%= block.author %></span></div>
+              <div class="my-col type"><span><%= block.cnt %></span></div> <% overall += parseInt(block.cnt) %>
+              <div class="my-col date"><span><%= block.date %></span></div>
+          </div>
           <% } %>
         </div>
 
         <!-- footer -->
         <footer>
+          <div>
             <form action="/donate" method="post" target="blank">
                 <input type="hidden" name="cmd" value="_s-xclick" />
                 <input type="hidden" name="hosted_button_id" value="QEM6B9Z67JKGS" />
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" title="Help to keep the server online and donate via PayPal." alt="Donate with PayPal button" />
+                <input type="image" class="donate-image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" title="Help to keep the server online and donate via PayPal." alt="Donate with PayPal button" />
             </form>
-            <span>Copyright &copy; 2020 Bartłomiej Grochowski</span>
+          </div>
+            <span class="copyright">Copyright &copy; 2020 Bartłomiej Grochowski</span>
         </footer>
 
         <%= locals.msg %>
@@ -70,6 +83,9 @@
     <script src="jquery-cookie.js"></script>
 
     <!-- JS Scripts -->
+    <script>
+      document.getElementById('overall-blocks').innerHTML = `(overall: ${<%= overall %>})`
+    </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164273479-1"></script>
