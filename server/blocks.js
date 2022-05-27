@@ -40,25 +40,6 @@ var InfinityBlocks = [
             'Minecraft32 > Wood',
         ]
     ),
-
-    new Block(
-        "ESL Titlepack",
-        "Tomek",
-        "/blockimages/esltitlepack.jpg",
-        "/blocks/ESLTitlepack.zip",
-        "26.07.2018",
-        "93",
-        [
-            'Block0X > Curve 1-5',
-            'Block0X > Slope 1-6',
-            'Block0X > Slope Transitions 1-4',
-            'Block0X > Transition A 1-5',
-            'Block0X > Transition B 1-5',
-            'Block0X > Transition C 1-3',
-            'Block0X > Transition D 1-3',
-            '-- where X in {1,2,3}',
-        ]
-    ),
     new Block(
         "TM Logo & Ice Block",
         "Ketrab",
@@ -140,7 +121,24 @@ var InfinityBlocks = [
             'Special > Side To Pillar',
         ]
     ),
-
+    new Block(
+        "ESL Titlepack",
+        "Tomek",
+        "/blockimages/esltitlepack.jpg",
+        "/blocks/ESLTitlepack.zip",
+        "26.07.2018",
+        "93",
+        [
+            'Block0X > Curve 1-5',
+            'Block0X > Slope 1-6',
+            'Block0X > Slope Transitions 1-4',
+            'Block0X > Transition A 1-5',
+            'Block0X > Transition B 1-5',
+            'Block0X > Transition C 1-3',
+            'Block0X > Transition D 1-3',
+            '-- where X in {1,2,3}',
+        ]
+    ),
 
     new Block(
         "Trees",
@@ -409,6 +407,64 @@ var InfinityBlocks = [
             'Ice block',
             'Water block',
             'Red Turbo',
+        ]
+    ),
+    new Block(
+        "Hole Ramp",
+        "RandoMan",
+        "/blockimages/RandoMan_Hole_Ramp.png",
+        "/blocks/RandoMan_Hole_Ramp.zip",
+        "20.05.2022",
+        "3",
+        [
+            'Code Road',
+            'Flat to Vertical Arena',
+            'Hole Ramp',
+        ]
+    ),
+    new Block(
+        "Slope Staircase",
+        "RandoMan",
+        "/blockimages/RandoMan_Slope_Staircase.png",
+        "/blocks/RandoMan_Slope_Staircase.zip",
+        "20.05.2022",
+        "2",
+        [
+            'Slope Staircase',
+            'Staircase',
+        ]
+    ),
+    new Block(
+        "Thin Ramp",
+        "RandoMan",
+        "/blockimages/RandoMan_Hole_Ramp.png",
+        "/blocks/RandoMan_Thin_Ramp.zip",
+        "20.05.2022",
+        "1",
+        [
+            'Thin Ramp',
+        ]
+    ),
+    new Block(
+        "Slope To Quarter",
+        "RandoMan",
+        "/blockimages/Platforms.png",
+        "/blocks/RandoMan_Slope_To_Quarter.zip",
+        "20.05.2022",
+        "1",
+        [
+            'Arena Slope to Quarter',
+        ]
+    ),
+    new Block(
+        "Navara (Scenery)",
+        "RandoMan",
+        "/blockimages/RandoMan_Navara.png",
+        "/blocks/RandoMan_Navara.zip",
+        "25.05.2022",
+        "1",
+        [
+            'Navara',
         ]
     ),
 ];
