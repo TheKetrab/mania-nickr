@@ -410,6 +410,17 @@ var InfinityBlocks = [
         ]
     ),
     new Block(
+        "Bay Buildings (Scenery)",
+        "St1ngLeR",
+        "/blockimages/BayBuildings.png",
+        "/blocks/BayBuildings.zip",
+        "18.01.2022",
+        "1",
+        [
+            'Bay Buildings',
+        ]
+    ),
+    new Block(
         "Hole Ramp",
         "RandoMan",
         "/blockimages/RandoMan_Hole_Ramp.png",
