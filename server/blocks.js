@@ -459,7 +459,7 @@ var InfinityBlocks = [
     new Block(
         "Slope To Quarter",
         "RandoMan",
-        "/blockimages/Platforms.png",
+        "/blockimages/RandoMan_Slope_To_Quarter.png",
         "/blocks/RandoMan_Slope_To_Quarter.zip",
         "20.05.2022",
         "1",
