@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Helpful website for every ManiaPlanet player, who wants to create a great nick or color map name. Generated code can be used for both games: Trackmania and Shootmania." />
+    <meta name="keywords" content="ManiaPlanet,TrackMania,ShootMania,Color,Nick,Map,Name">
+    <meta name="author" content="Ketrab">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="zikHzUP2BPlxqSJznUkXttzV85ikCbGzlcxaLAas8P4" />
+
+    <title>ManiaNickr</title>
+    <link href='https://fonts.googleapis.com/css?family=Noticia+Text' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="media/ManiaNickrLogo.png">
+    <link rel="stylesheet" href="media/infinity-style.css">
+    <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet'>
+
+</head>
+
+<body>
+  <div class="bckgr">
+  </div>
+
+    <main>
+      <header>
+        <div class="manianickr-logo">
+          <img src="media/ManiaNickrLogo.png" alt="Mania Nickr Logo">
+          <h1 id="logo-title"><a href="./">ManiaPlanet Nickr</a></h1>
+      </div>
+      <div class="infinity-logo">
+          <img src="media/tmnf-logo.png"/>
+          <h1>TM Infinity</h1>
+        </div>
+      </header>
+      <% var overall = 0 %>
+      <h2 class="the-title">TrackMania Infinity Blocks Database <span id="overall-blocks"></span></h1>
+        <div class="my-table">
+          <% for (let i=locals.InfinityBlocks.length-1; i>=0; i--) { %>
+            <% let block = InfinityBlocks[i]; %>
+            <div class="my-row">
+              <div class="popup">
+                <div class="big-screen">
+                  <img src="<%= block.screen %>"/>
+                </div>
+                <div class="contain-details-outer">
+                <div class="contain-details">
+                  <% for (let j=0; j<locals.InfinityBlocks[i].containList.length; j++) { %>
+                    <span><%= InfinityBlocks[i].containList[j] %></span><% } %>
+                </div>
+                </div>
+              </div>
+              <div class="my-col img"><img width="10px" height="10px" src="<%= block.screen %>"/></div>
+              <div class="my-col name"><a href="<%= block.link %>"><%= block.name %></a></div>
+              <div class="my-col author"><span><%= block.author %></span></div>
+              <div class="my-col type"><span><%= block.cnt %></span></div> <% overall += parseInt(block.cnt) %>
+              <div class="my-col date"><span><%= block.date %></span></div>
+          </div>
+          <% } %>
+        </div>
+
+        <!-- footer -->
+        <footer>
+          <div>
+            <form action="/donate" method="post" target="blank">
+                <input type="hidden" name="cmd" value="_s-xclick" />
+                <input type="hidden" name="hosted_button_id" value="QEM6B9Z67JKGS" />
+                <input type="image" class="donate-image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" title="Help to keep the server online and donate via PayPal." alt="Donate with PayPal button" />
+            </form>
+          </div>
+            <span class="copyright">Copyright &copy; 2020 Bartłomiej Grochowski</span>
+        </footer>
+
+    </main>
+
+
+    <!-- JS Libs -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="src/jquery-cookie.js"></script>
+
+    <!-- JS Scripts -->
+    <script>
+      document.getElementById('overall-blocks').innerHTML = `(overall: ${<%= overall %>})`
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164273479-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-164273479-1');
+    </script>
+</body>
+
+
+
+</html>
