@@ -13,8 +13,16 @@
     <title>ManiaNickr</title>
     <link href='https://fonts.googleapis.com/css?family=Noticia+Text' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="media/ManiaNickrLogo.png">
-    <link rel="stylesheet" href="media/infinity-style.css">
+    <link rel="stylesheet" href="./src/infinity-style.css">
     <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet'>
+    <script src="./src/blocks.js"></script>
+
+    <!-- JS Libs -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="src/jquery-cookie.js"></script>
+
 
 </head>
 
@@ -26,38 +34,58 @@
       <header>
         <div class="manianickr-logo">
           <img src="media/ManiaNickrLogo.png" alt="Mania Nickr Logo">
-          <h1 id="logo-title"><a href="./">ManiaPlanet Nickr</a></h1>
+          <h1 id="logo-title"><a href=".">ManiaPlanet Nickr</a></h1>
       </div>
       <div class="infinity-logo">
           <img src="media/tmnf-logo.png"/>
           <h1>TM Infinity</h1>
         </div>
       </header>
-      <% var overall = 0 %>
       <h2 class="the-title">TrackMania Infinity Blocks Database <span id="overall-blocks"></span></h1>
-        <div class="my-table">
-          <% for (let i=locals.InfinityBlocks.length-1; i>=0; i--) { %>
-            <% let block = InfinityBlocks[i]; %>
-            <div class="my-row">
-              <div class="popup">
-                <div class="big-screen">
-                  <img src="<%= block.screen %>"/>
-                </div>
-                <div class="contain-details-outer">
-                <div class="contain-details">
-                  <% for (let j=0; j<locals.InfinityBlocks[i].containList.length; j++) { %>
-                    <span><%= InfinityBlocks[i].containList[j] %></span><% } %>
-                </div>
-                </div>
-              </div>
-              <div class="my-col img"><img width="10px" height="10px" src="<%= block.screen %>"/></div>
-              <div class="my-col name"><a href="<%= block.link %>"><%= block.name %></a></div>
-              <div class="my-col author"><span><%= block.author %></span></div>
-              <div class="my-col type"><span><%= block.cnt %></span></div> <% overall += parseInt(block.cnt) %>
-              <div class="my-col date"><span><%= block.date %></span></div>
-          </div>
-          <% } %>
-        </div>
+        <div id="my-table-id" class="my-table"></div>
+        <script>
+          // create row for each item in BLOCKS
+          var overall = 0;
+          for (let i=InfinityBlocks.length-1; i>=0; i--) {
+            let block = InfinityBlocks[i];
+
+            var row = $('<div>', { class: 'my-row' });
+            row.appendTo('#my-table-id');
+
+            // CREATE POPUP
+            var popup = $('<div>', { class: 'popup' }).appendTo(row);
+            var bigscreen = $('<div>', { class: "big-screen" });
+            $('<img>', { src: '.' + block.screen }).appendTo(bigscreen);
+            bigscreen.appendTo(popup);
+
+            var cDetailsOuter = $('<div>', { class: 'contain-details-outer' });
+            cDetailsOuter.appendTo(popup);
+
+            var cDetails = $('<div>', { class: "contain-details" });
+            cDetails.appendTo(cDetailsOuter);
+
+            for (let j=0; j<block.containList.length; j++) { 
+              $('<span />').html(block.containList[j]).appendTo(cDetails);
+            }
+
+            // CREATE COLUMNS
+            var myColImg = $('<div>', { class: 'my-col img' }).appendTo(row);
+            $('<img>', { src: '.' + block.screen }).appendTo(myColImg);
+
+            var myColName = $('<div>', { class: 'my-col name' }).appendTo(row);
+            $('<a>', {  href: block.link }).html( block.name ).appendTo(myColName);
+
+            var myColAuthor = $('<div>', { class: 'my-col author' }).appendTo(row);
+            $('<span>').html(block.author).appendTo(myColAuthor);
+
+            var myColType = $('<div>', { class: 'my-col type' }).appendTo(row);
+            $('<span>').html(block.cnt).appendTo(myColType);
+            overall += parseInt(block.cnt);
+
+            var myColDate = $('<div>', { class: 'my-col date' }).appendTo(row);
+            $('<span>').html(block.date).appendTo(myColDate);
+          }
+        </script>
 
         <!-- footer -->
         <footer>
@@ -74,15 +102,10 @@
     </main>
 
 
-    <!-- JS Libs -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="src/jquery-cookie.js"></script>
 
     <!-- JS Scripts -->
     <script>
-      document.getElementById('overall-blocks').innerHTML = `(overall: ${<%= overall %>})`
+      document.getElementById('overall-blocks').innerHTML = `(overall: ${ overall })`
     </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->

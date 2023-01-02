@@ -479,5 +479,3 @@ var InfinityBlocks = [
         ]
     ),
 ];
-
-module.exports = { InfinityBlocks };
