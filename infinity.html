@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-
 <head>
+
     <!-- Required meta tags -->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="Helpful website for every ManiaPlanet player, who wants to create a great nick or color map name. Generated code can be used for both games: Trackmania and Shootmania." />
@@ -13,7 +12,7 @@
     <title>ManiaNickr</title>
     <link href='https://fonts.googleapis.com/css?family=Noticia+Text' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="media/ManiaNickrLogo.png">
-    <link rel="stylesheet" href="./src/infinity-style.css">
+    <link rel="stylesheet" href="./src/infinity-style2.css">
     <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet'>
     <script src="./src/blocks.js"></script>
 
@@ -23,102 +22,105 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="src/jquery-cookie.js"></script>
 
-
 </head>
-
 <body>
-  <div class="bckgr">
-  </div>
+
+    <div class="bckgr"></div>  
+
+    <div class="panel">
+    <header>
+
+        <div class="manianickr-logo">
+            <img src="media/ManiaNickrLogo.png" alt="Mania Nickr Logo">
+            <h1 id="logo-title"><a href=".">ManiaPlanet Nickr</a></h1>
+        </div>
+        <div class="infinity-logo">
+            <img src="media/tmnf-logo.png"/>
+            <h1 id="tm-infinity-title"><a href="https://tmnf.exchange/threadshow/6517627">TM Infinity</a></h1>
+        </div>
+  
+    </header>
 
     <main>
-      <header>
-        <div class="manianickr-logo">
-          <img src="media/ManiaNickrLogo.png" alt="Mania Nickr Logo">
-          <h1 id="logo-title"><a href=".">ManiaPlanet Nickr</a></h1>
-      </div>
-      <div class="infinity-logo">
-          <img src="media/tmnf-logo.png"/>
-          <h1>TM Infinity</h1>
+        <div class="title-header">
+            <h2>TmInfinity Block Database</h2>
+            <h3 class="description">300 blocks overall!</h3>
         </div>
-      </header>
-      <h2 class="the-title">TrackMania Infinity Blocks Database <span id="overall-blocks"></span></h1>
-        <div id="my-table-id" class="my-table"></div>
-        <script>
-          // create row for each item in BLOCKS
-          var overall = 0;
-          for (let i=InfinityBlocks.length-1; i>=0; i--) {
-            let block = InfinityBlocks[i];
-
-            var row = $('<div>', { class: 'my-row' });
-            row.appendTo('#my-table-id');
-
-            // CREATE POPUP
-            var popup = $('<div>', { class: 'popup' }).appendTo(row);
-            var bigscreen = $('<div>', { class: "big-screen" });
-            $('<img>', { src: '.' + block.screen }).appendTo(bigscreen);
-            bigscreen.appendTo(popup);
-
-            var cDetailsOuter = $('<div>', { class: 'contain-details-outer' });
-            cDetailsOuter.appendTo(popup);
-
-            var cDetails = $('<div>', { class: "contain-details" });
-            cDetails.appendTo(cDetailsOuter);
-
-            for (let j=0; j<block.containList.length; j++) { 
-              $('<span />').html(block.containList[j]).appendTo(cDetails);
-            }
-
-            // CREATE COLUMNS
-            var myColImg = $('<div>', { class: 'my-col img' }).appendTo(row);
-            $('<img>', { src: '.' + block.screen }).appendTo(myColImg);
-
-            var myColName = $('<div>', { class: 'my-col name' }).appendTo(row);
-            $('<a>', {  href: block.link }).html( block.name ).appendTo(myColName);
-
-            var myColAuthor = $('<div>', { class: 'my-col author' }).appendTo(row);
-            $('<span>').html(block.author).appendTo(myColAuthor);
-
-            var myColType = $('<div>', { class: 'my-col type' }).appendTo(row);
-            $('<span>').html(block.cnt).appendTo(myColType);
-            overall += parseInt(block.cnt);
-
-            var myColDate = $('<div>', { class: 'my-col date' }).appendTo(row);
-            $('<span>').html(block.date).appendTo(myColDate);
-          }
-        </script>
-
-        <!-- footer -->
-        <footer>
-          <div>
-            <form action="/donate" method="post" target="blank">
-                <input type="hidden" name="cmd" value="_s-xclick" />
-                <input type="hidden" name="hosted_button_id" value="QEM6B9Z67JKGS" />
-                <input type="image" class="donate-image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" title="Help to keep the server online and donate via PayPal." alt="Donate with PayPal button" />
-            </form>
-          </div>
-            <span class="copyright">Copyright &copy; 2020 Bartłomiej Grochowski</span>
-        </footer>
+        <div id="grid-container" class="grid-container">
+            <div class="grid-row">
+                <div class="popup-wrapper"></div>
+                <span class="grid-header screen"></span>
+                <span class="grid-header name">Name</span>
+                <span class="grid-header author">Author</span>
+                <span class="grid-header env"><span>Env</span></span>
+                <span class="grid-header blocks"><span>Blocks</span></span>
+                <span class="grid-header date"><span>Date</span></span>
+            </div>
+        </div>
 
     </main>
 
+    <footer>
+        <div>
+          <form action="/donate" method="post" target="blank">
+              <input type="hidden" name="cmd" value="_s-xclick" />
+              <input type="hidden" name="hosted_button_id" value="QEM6B9Z67JKGS" />
+              <input type="image" class="donate-image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" title="Help to keep the server online and donate via PayPal." alt="Donate with PayPal button" />
+          </form>
+        </div>
+          <span class="copyright">Copyright &copy; 2020-2023 Bartłomiej Grochowski</span>
+      </footer>
+    </div>
 
 
-    <!-- JS Scripts -->
+
     <script>
-      document.getElementById('overall-blocks').innerHTML = `(overall: ${ overall })`
-    </script>
+        // create row for each item in BLOCKS
+        var overall = 0;
+        for (let i=InfinityBlocks.length-1; i>=0; i--) {
+          let block = InfinityBlocks[i];
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164273479-1"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+          var row = $('<div>', { class: 'grid-row' });
+          row.appendTo('#grid-container');
 
-    gtag('config', 'UA-164273479-1');
-    </script>
+          // CREATE POPUP
+          
+          var popupWrapper = $('<div>', { class: 'popup-wrapper '}).appendTo(row);
+          var popup = $('<div>', { class: 'popup' }).appendTo(popupWrapper);
+          var bigscreen = $('<div>', { class: "big-screen" });
+          $('<img>', { src: '.' + block.screen }).appendTo(bigscreen);
+          bigscreen.appendTo(popup);
+
+          var cDetails = $('<div>', { class: "contain-details" });
+          cDetails.appendTo(popup);
+
+          for (let j=0; j<block.containList.length; j++) { 
+            $('<span />').html(block.containList[j]).appendTo(cDetails);
+          }
+          
+
+          // CREATE COLUMNS
+          //var colImg = $('<img>', { class: 'screen', src: '.' + block.screen }).appendTo(row);
+          var colImg = $('<div>', { class: 'screen grid-item' })
+            .attr("style", `background-image: url(.${block.screen})`)
+            .appendTo(row);
+
+          var colName = $('<a>', { class: 'grid-item name', href: block.link }).html(block.name).appendTo(row);
+
+          var colAuthor = $('<span>', { class: 'grid-item author' }).html(block.author).appendTo(row);
+
+          var envImgPath = `./media/env/${block.env}.png`;
+          var colEnv = $('<div>', { class: 'grid-item env' }).appendTo(row);
+          var envImg = $('<img>').attr("src",envImgPath).appendTo(colEnv);
+
+          var colBlocks = $('<span>', { class: 'grid-item blocks' }).appendTo(row);
+          var colBlocksInside = $('<span>').html(block.cnt).appendTo(colBlocks);
+          overall += parseInt(block.cnt);
+
+          var colDate = $('<span>', { class: 'grid-item date' }).appendTo(row);
+          var colDateInside = $('<span>').html(block.date).appendTo(colDate);
+        }
+      </script>
+
+
 </body>
-
-
-
-</html>

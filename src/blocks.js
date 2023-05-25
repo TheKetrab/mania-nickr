@@ -1,6 +1,6 @@
 
 class Block {
-    constructor(name,author,screen,link,date,cnt,containList) {
+    constructor(name,author,screen,link,date,cnt,containList,env) {
         this.name = name;
         this.author = author;
         this.screen = screen;
@@ -8,6 +8,7 @@ class Block {
         this.date = date;
         this.cnt = cnt;
         this.containList = containList;
+        this.env = env;
     }
 }
 
@@ -38,7 +39,8 @@ var InfinityBlocks = [
             'Minecraft32 > Sand',
             'Minecraft32 > Stone',
             'Minecraft32 > Wood',
-        ]
+        ],
+        "any"
     ),
     new Block(
         "TM Logo & Ice Block",
@@ -47,7 +49,8 @@ var InfinityBlocks = [
         "/blocks/Ketrab.zip",
         "24.07.2018",
         "3",
-        ['TM Logo T','TM Logo M','Stadium Ice Block']
+        ['TM Logo T','TM Logo M','Stadium Ice Block'],
+        "stadium"
     ),
     new Block(
         "Tubes",
@@ -119,7 +122,8 @@ var InfinityBlocks = [
             'Special > Outsider C2',
             'Special > To Pillar',
             'Special > Side To Pillar',
-        ]
+        ],
+        "stadium"
     ),
     new Block(
         "ESL Titlepack",
@@ -137,7 +141,8 @@ var InfinityBlocks = [
             'Block0X > Transition C 1-3',
             'Block0X > Transition D 1-3',
             '-- where X in {1,2,3}',
-        ]
+        ],
+        "stadium"
     ),
 
     new Block(
@@ -147,7 +152,8 @@ var InfinityBlocks = [
         "/blocks/Trees.zip",
         "22.08.2018",
         "3",
-        ['Callistemon','JapaneseMaple','Pine']
+        ['Callistemon','JapaneseMaple','Pine'],
+        "any"
     ),
     new Block(
         "Circuit Ramps",
@@ -156,7 +162,8 @@ var InfinityBlocks = [
         "/blocks/CircuitRamps.zip",
         "06.09.2018",
         "3",
-        ['8th Sphere','Flat To QuaterPipe','Flat To QuaterPipe Mirrored']
+        ['8th Sphere','Flat To QuaterPipe','Flat To QuaterPipe Mirrored'],
+        "stadium"
     ),
     new Block(
         "Portals",
@@ -165,7 +172,8 @@ var InfinityBlocks = [
         "/blocks/Portals.zip",
         "07.09.2018",
         "2",
-        ['Blue','Orange']
+        ['Blue','Orange'],
+        "any"
     ),
     new Block(
         "Fractured Blocks",
@@ -174,7 +182,8 @@ var InfinityBlocks = [
         "/blocks/FracturedBlocks.zip",
         "11.09.2018",
         "3",
-        ['f0','f1','f2']
+        ['f0','f1','f2'],
+        "any"
     ),
     new Block(
         "GTA San Andreas Little Props",
@@ -208,7 +217,8 @@ var InfinityBlocks = [
             'Kick Stadium > KickRamp02',
             'Kick Stadium > KickRamp03',
             'Kick Stadium > KickRamp04'
-        ]
+        ],
+        "any"
     ),
     new Block(
         "GTA San Andreas Planes",
@@ -217,7 +227,8 @@ var InfinityBlocks = [
         "/blocks/GTAVC_2_Planes.zip",
         "19.09.2018",
         "2",
-        ['Jumbo','Luxor']
+        ['Jumbo','Luxor'],
+        "bay"
     ),
     new Block(
         "Speed UFO",
@@ -226,7 +237,8 @@ var InfinityBlocks = [
         "/blocks/SpeedUFO.zip",
         "14.03.2020",
         "1",
-        ['UFO']
+        ['UFO'],
+        "desert"
     ),
     new Block(
         "Lighthouse",
@@ -235,7 +247,8 @@ var InfinityBlocks = [
         "/blocks/Lighthouse.zip",
         "14.03.2020",
         "1",
-        ['Lighthouse']
+        ['Lighthouse'],
+        "coast"
     ),
     new Block(
         "Icebreaker",
@@ -244,7 +257,8 @@ var InfinityBlocks = [
         "/blocks/Icebreaker.zip",
         "12.05.2020",
         "1",
-        ['Icebreaker']
+        ['Icebreaker'],
+        "snow"
     ),
     new Block(
         "Balloons",
@@ -253,7 +267,8 @@ var InfinityBlocks = [
         "/blocks/Balloons.zip",
         "14.05.2020",
         "8",
-        ['Skin 1-8']
+        ['Skin 1-8'],
+        "rally"
     ),
     new Block(
         "Platform To Highway",
@@ -262,7 +277,8 @@ var InfinityBlocks = [
         "/blocks/PlatformToHighway.zip",
         "17.05.2020",
         "2",
-        ['Air','Ground']
+        ['Air','Ground'],
+        "island"
     ),
     new Block(
         "Circuit Trap",
@@ -271,7 +287,8 @@ var InfinityBlocks = [
         "/blocks/Circuit_Trap.zip",
         "23.05.2020",
         "3",
-        ['Air','Ground','Slope']
+        ['Air','Ground','Slope'],
+        "stadium"
     ),
     new Block(
         "Dirt Road Pillar",
@@ -280,7 +297,8 @@ var InfinityBlocks = [
         "/blocks/Dirt_Road_Pillar.zip",
         "23.05.2020",
         "2",
-        ['Dirt','Grass']
+        ['Dirt','Grass'],
+        "stadium"
     ),
     new Block(
         "LinuxCat_Blocks",
@@ -289,7 +307,8 @@ var InfinityBlocks = [
         "/blocks/LinuxCat_Blocks.zip",
         "2.11.2020",
         "0",
-        []
+        [],
+        "any"
     ),
     new Block(
         "Sausage Roads",
@@ -298,7 +317,8 @@ var InfinityBlocks = [
         "/blocks/sausage1.zip",
         "17.04.2021",
         "3",
-        ['Corner','Normal To Sausage','Straight']
+        ['Corner','Normal To Sausage','Straight'],
+        "stadium"
     ),
     new Block(
         "Grid Platforms",
@@ -315,7 +335,8 @@ var InfinityBlocks = [
             'Platforms > Slope',
             'Platforms > Turbo',
             'Platforms > Turbo Roulette',
-        ]
+        ],
+        "stadium"
     ),
     new Block(
         "Holes",
@@ -330,7 +351,8 @@ var InfinityBlocks = [
             'Roulette Tubro Hole Ground',
             'Turbo Hole Air',
             'Turbo Hole Ground',
-        ]
+        ],
+        "stadium"
     ),
     new Block(
         "Ramps",
@@ -339,7 +361,8 @@ var InfinityBlocks = [
         "/blocks/Stadium_Fabric_Ramps.zip",
         "18.04.2021",
         "4",
-        ['Fabric Ramp 1-4']
+        ['Fabric Ramp 1-4'],
+        "stadium"
     ),
     new Block(
         "Stadium Platform Loop-Start-Corner",
@@ -348,7 +371,8 @@ var InfinityBlocks = [
         "/blocks/StadiumPlatformLoopStartCorner.zip",
         "28.06.2021",
         "1",
-        ['Stadium Platform Loop-Start-Corner']
+        ['Stadium Platform Loop-Start-Corner'],
+        "stadium"
     ),
     new Block(
         "Coconut Mall (Scenery)",
@@ -357,7 +381,8 @@ var InfinityBlocks = [
         "/blocks/Coconut_Mall.zip",
         "02.07.2021",
         "1",
-        ['Coconut Mall - Mariocart']
+        ['Coconut Mall - Mariocart'],
+        "any"
     ),
     new Block(
         "Numbers",
@@ -376,7 +401,8 @@ var InfinityBlocks = [
             'Red > 1-9',
             'White > 1-9',
             'Zeros > All colors',
-        ]
+        ],
+        "any"
     ),
     new Block(
         "Ice Road",
@@ -392,7 +418,8 @@ var InfinityBlocks = [
             'Ice Road Curve 4',
             'Ice Road Curve 5',
             'Red Turbo',
-        ]
+        ],
+        "stadium"
     ),
     new Block(
         "Platforms",
@@ -407,7 +434,8 @@ var InfinityBlocks = [
             'Ice block',
             'Water block',
             'Red Turbo',
-        ]
+        ],
+        "stadium"
     ),
     new Block(
         "Bay Buildings (Scenery)",
@@ -418,7 +446,8 @@ var InfinityBlocks = [
         "1",
         [
             'Bay Buildings',
-        ]
+        ],
+        "any"
     ),
     new Block(
         "Hole Ramp",
@@ -431,7 +460,8 @@ var InfinityBlocks = [
             'Code Road',
             'Flat to Vertical Arena',
             'Hole Ramp',
-        ]
+        ],
+        "stadium"
     ),
     new Block(
         "Slope Staircase",
@@ -443,7 +473,8 @@ var InfinityBlocks = [
         [
             'Slope Staircase',
             'Staircase',
-        ]
+        ],
+        "stadium"
     ),
     new Block(
         "Thin Ramp",
@@ -454,7 +485,8 @@ var InfinityBlocks = [
         "1",
         [
             'Thin Ramp',
-        ]
+        ],
+        "stadium"
     ),
     new Block(
         "Slope To Quarter",
@@ -465,7 +497,8 @@ var InfinityBlocks = [
         "1",
         [
             'Arena Slope to Quarter',
-        ]
+        ],
+        "stadium"
     ),
     new Block(
         "Navara (Scenery)",
@@ -476,6 +509,7 @@ var InfinityBlocks = [
         "1",
         [
             'Navara',
-        ]
+        ],
+        "any"
     ),
 ];
