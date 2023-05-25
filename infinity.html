@@ -44,7 +44,7 @@
     <main>
         <div class="title-header">
             <h2>TmInfinity Block Database</h2>
-            <h3 class="description">300 blocks overall!</h3>
+            <h3 id="blocks-cnt-desc" class="description">300 blocks overall!</h3>
         </div>
         <div id="grid-container" class="grid-container">
             <div class="grid-row">
@@ -119,6 +119,8 @@
 
           var colDate = $('<span>', { class: 'grid-item date' }).appendTo(row);
           var colDateInside = $('<span>').html(block.date).appendTo(colDate);
+
+          $('#blocks-cnt-desc').html(`${overall} blocks overall!`);
         }
       </script>
 
