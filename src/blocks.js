@@ -518,7 +518,7 @@ var InfinityBlocks = [
         "/blockimages/tm2020pipes.png",
         "/blocks/tm2020pipes.zip",
         "05.05.2023",
-        "1",
+        "12",
         [
             'StructureBaseAir',
             'StructureCornerAir',
@@ -533,6 +533,6 @@ var InfinityBlocks = [
             'StructureStraightGrass',
             'StructureTShapedGrass',
         ],
-        "staduim"
+        "stadium"
     ),
 ];
