@@ -512,4 +512,27 @@ var InfinityBlocks = [
         ],
         "any"
     ),
+    new Block(
+        "TM2020 Pipes",
+        "Cosmo",
+        "/blockimages/tm2020pipes.png",
+        "/blocks/tm2020pipes.zip",
+        "05.05.2023",
+        "1",
+        [
+            'StructureBaseAir',
+            'StructureCornerAir',
+            'StructureCrossAir',
+            'StructureDeadendAir',
+            'StructureStraightAir',
+            'StructureTShapedAir',
+            'StructureBaseGrass',
+            'StructureCornerGrass',
+            'StructureCrossGrass',
+            'StructureDeadendGrass',
+            'StructureStraightGrass',
+            'StructureTShapedGrass',
+        ],
+        "staduim"
+    ),
 ];
