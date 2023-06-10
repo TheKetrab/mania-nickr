@@ -75,6 +75,9 @@
 
 
     <script>
+
+        var loadedImgs = new Array(InfinityBlocks.length).fill(false);
+
         // create row for each item in BLOCKS
         var overall = 0;
         for (let i=InfinityBlocks.length-1; i>=0; i--) {
@@ -88,7 +91,10 @@
           var popupWrapper = $('<div>', { class: 'popup-wrapper '}).appendTo(row);
           var popup = $('<div>', { class: 'popup' }).appendTo(popupWrapper);
           var bigscreen = $('<div>', { class: "big-screen" });
-          $('<img>', { src: '.' + block.screen }).appendTo(bigscreen);
+          var imgInPopup = $('<img>')
+            .attr("data-src", '.' + block.screen )
+            .attr('id',`popupImg${i}`);
+          imgInPopup.appendTo(bigscreen);
           bigscreen.appendTo(popup);
 
           var cDetails = $('<div>', { class: "contain-details" });
@@ -98,11 +104,20 @@
             $('<span />').html(block.containList[j]).appendTo(cDetails);
           }
           
+          row.mouseenter(function(e) {
+            if (!loadedImgs[i]) {
+              var im = $(`#popupImg${i}`)
+            var srcData = im.data("src");
+            im.attr("src",srcData);
+            loadedImgs[i] = true;
+
+            }
+          });
 
           // CREATE COLUMNS
           //var colImg = $('<img>', { class: 'screen', src: '.' + block.screen }).appendTo(row);
           var colImg = $('<div>', { class: 'screen grid-item' })
-            .attr("style", `background-image: url(.${block.screen})`)
+            .attr("style", `background-image: url(.${block.miniScreen})`)
             .appendTo(row);
 
           var colName = $('<a>', { class: 'grid-item name', href: block.link }).html(block.name).appendTo(row);
