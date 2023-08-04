@@ -2,13 +2,6 @@
     --infinity-info-height: 55px;
 }
 
-* {
-    outline: pink dashed 1px;;
-}
-
-
-
-
 #color-values-vals {
     display: flex;
     flex-direction: column;
