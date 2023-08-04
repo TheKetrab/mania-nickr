@@ -570,4 +570,20 @@ var InfinityBlocks = [
         ],
         "stadium"
     ),
+    new Block(
+        "Stripes",
+        "celyan",
+        "/blockimages/Stripes.jpg",
+        "/blockimages/mini/Stripes_mini.jpg",
+        "/blocks/tm2020pipes.zip",
+        "25.07.2023",
+        "4",
+        [
+            'FreeCPPlatform',
+            'FreeFinishPlatform',
+            'FreeMultilapPlatform',
+            'FreeStartPlatform',
+        ],
+        "stadium"
+    ),
 ];
