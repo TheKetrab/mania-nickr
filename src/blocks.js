@@ -548,7 +548,7 @@ var InfinityBlocks = [
     ),
     new Block(
         "TM2020 Pipes",
-        "Cosmo",
+        "Celyan",
         "/blockimages/tm2020pipes.png",
         "/blockimages/mini/tm2020pipes_mini.png",
         "/blocks/tm2020pipes.zip",
@@ -572,7 +572,7 @@ var InfinityBlocks = [
     ),
     new Block(
         "Stripes",
-        "celyan",
+        "Celyan",
         "/blockimages/Stripes.jpg",
         "/blockimages/mini/Stripes_mini.jpg",
         "/blocks/tm2020pipes.zip",
