@@ -13,63 +13,80 @@
     <title>ManiaNickr</title>
     <link href='https://fonts.googleapis.com/css?family=Noticia+Text' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="media/ManiaNickrLogo.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="src/style.css">
+    <link rel="stylesheet" href="src/nickr-style.css">
     <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet'>
 
 </head>
 
 <body>
 
-    <main class="p-3 shadow">
-        <div id="creator-info" style="display: flex; flex-direction: column;">
-            <div>
-                created by
-                <span style="font-weight: bold; color: rgb(255, 255, 255);">&#1090;&#1084;&#1093;</span><span style="font-weight: bold; color: rgb(0, 0, 0);">&raquo;</span><span style="font-weight: bold; color: rgb(255, 255, 255);">&#1185;&epsilon;&tau;&#1103;&alpha;&#1074;</span><span style="font-weight: bold; color: rgb(0, 80, 40)">'</span>
+    <div class="bckgr"></div>  
+
+    <div class="panel shadow">
+    <header>
+        <div id="real-header">
+            <div id="logo">
+                <img src="media/ManiaNickrLogo.png" alt="Mania Nickr Logo"/>
+                <h4>ManiaPlanet Nickr</h4>
             </div>
-            <div style="text-align: center;">
-                <a href="https://www.youtube.com/watch?v=CcGG2NHyfxc" target="blank">need help? [video]</a>
-            </div>
+            <div id="creator-info">
+                <div>
+                    <span>created by</span>
+                    <span style="font-weight: bold; color: rgb(255, 255, 255);">&#1090;&#1084;&#1093;</span>
+                    <span style="font-weight: bold; color: rgb(0, 0, 0);">&raquo;</span>
+                    <span style="font-weight: bold; color: rgb(255, 255, 255);">&#1185;&epsilon;&tau;&#1103;&alpha;&#1074;</span>
+                    <span style="font-weight: bold; color: rgb(0, 80, 40)">'</span>
+                </div>
+                <a href="https://www.youtube.com/watch?v=CcGG2NHyfxc" target="_blank">need help? [video]</a>            
+            </div>  
         </div>
-        <div>
-            <img src="media/ManiaNickrLogo.png" width="75" height="75" alt="Mania Nickr Logo">
-            <span id="logo-title">ManiaPlanet Nickr</span>
-        </div>
-        <div class="container bigbox" id="modifier">
+        <div id="infinity-info">
+            <h4>Already heard about TM Infinity?</h4>
+            <a href="./infinity.html" target="_blank">Check out our custom blocks database for TrackMania Forever</a>
+        </div>    
+    </header>
+
+    <div id="fake-infinity-info"></div>
+    
+    <main>
+
+        <div id="modifier">
             <!-- text format -->
-            <div id="properties" class="">
-                <div class="m-0 p-0 d-flex">
+            <div id="properties">
+                <!-- style -->
+                <div id="properties-style">
                     <div class="checker my-auto">
                         <input type="radio" id="prop-narrow" name="prop-wideness" value="narrow">
-                        <label class="m-0" for="prop-narrow">narrow</label><br/>
+                        <label for="prop-narrow">narrow</label><br/>
                         <input type="radio" id="prop-normal" name="prop-wideness" value="normal">
-                        <label class="m-0" for="prop-normal">normal</label><br/>
+                        <label for="prop-normal">normal</label><br/>
                         <input type="radio" id="prop-wide" name="prop-wideness" value="wide">
-                        <label class="m-0" for="prop-wide">wide</label><br/>
+                        <label for="prop-wide">wide</label><br/>
                     </div>
                     <div class="checker my-auto">
                         <input type="checkbox" id="prop-bold" name="prop-bold" value="bold">
-                        <label id="prop-bold-label" class="m-0" for="prop-bold">bold</label><br/>
+                        <label id="prop-bold-label" for="prop-bold">bold</label><br/>
                         <input type="checkbox" id="prop-italic" name="prop-italic" value="italic">
-                        <label id="prop-italic-label" class="m-0" for="prop-italic">italic</label><br/>
+                        <label id="prop-italic-label" for="prop-italic">italic</label><br/>
                         <input type="checkbox" id="prop-shadow" name="prop-shadow" value="shadow">
-                        <label id="prop-shadow-label" class="m-0" for="prop-shadow">shadow</label><br/>
+                        <label id="prop-shadow-label" for="prop-shadow">shadow</label><br/>
                     </div>
                 </div>
                 <!-- color -->
-                <div class="m-0 p-0 d-flex">
-                    <div id="picker" class="color-checker mx-2 px-0 my-auto"></div>
-                    <div class="d-flex mx-2 my-auto">
-                        <div class="d-flex flex-column px-2">
-                            <label class="text-right font-weight-bold">HEX:</label>
-                            <label class="text-right font-weight-bold">RGB:</label>
+                <div id="color-container">
+                    <div id="picker" class="color-checker"></div>
+                    <div id="color-values">
+                        <div id="color-values-labels">
+                            <label>HEX:</label>
+                            <label>RGB:</label>
                         </div>
-                        <div class="d-flex flex-column">
-                            <input id="color-hex-input" class="" type="text">
-                            <div id="rgb-inputs" class="d-flex">
-                                <input id="rgb-inputs-red" class="input-flexible flex-grow-1" type="number" min="0" max="255">
-                                <input id="rgb-inputs-green" class="input-flexible flex-grow-1" type="number" min="0" max="255">
-                                <input id="rgb-inputs-blue" class="input-flexible flex-grow-1" type="number" min="0" max="255">
+                        <div id="color-values-vals">
+                            <input id="color-hex-input" type="text">
+                            <div id="rgb-inputs">
+                                <input id="rgb-inputs-red" class="input-flexible" type="number" min="0" max="255">
+                                <input id="rgb-inputs-green" class="input-flexible" type="number" min="0" max="255">
+                                <input id="rgb-inputs-blue" class="input-flexible" type="number" min="0" max="255">
                             </div>
                             <button id="button-apply-color">Apply color</button>
                         </div>
@@ -79,16 +96,16 @@
 
             <!-- nick -->
             <div id="nick-edit">
-                <div class="my-1">
-                    <label class="m-0">Text: </label>
-                    <div id="input-text" contenteditable="true" class="single-line"></div>
+                <div class="label-and-input">
+                    <label>Text: </label>
+                    <div id="input-text" contenteditable="true" class="single-line text-displayer"></div>
                 </div>
-                <div class="my-1">
-                    <label class="m-0">Code:</label>
+                <div class="label-and-input">
+                    <label>Code:</label>
                     <span id="input-nadeo-warning" style="position: relative;">
                         <span id="input-nadeo-warning-text"></span>
                         <div id="input-nadeo-warning-info">
-                            <span class="font-weight-bold">Generated code might be too long!</span>
+                            <span class="warning-info">Generated code might be too long!</span>
                             <span>If you're generating the code</span>
                             <span>for MediaTracker - it's fine.</span>
                             <span>Otherwise - check out the limits:</span>
@@ -100,36 +117,37 @@
                             </div>
                         </div>
                     </span>
-                    <div id="input-nadeo" class="d-flex flex-row">
-                        <input id="input-nadeo-input" readonly="true" type="text" placeholder="Paste the code to ManiaPlanet" class="flex-grow-1">
-                        <button onclick="copyToClipboard()">copyToClipboard</button>
+                    <div id="input-nadeo">
+                        <input id="input-nadeo-input" class="text-displayer" readonly="true" type="text" placeholder="Paste the code to ManiaPlanet">
+                        <button onclick="copyToClipboard()"><span>Copy</span><img src="./copy.svg" height="15"/></button>
                     </div>
                 </div>
-                <div class="my-1">
-                    <label class="m-0">Result:</label>
-                    <div id="result" class="single-line"></div>
+                <div class="label-and-input">
+                    <label>Result:</label>                    
+                    <div id="result" class="single-line text-displayer"></div>
                 </div>
             </div>
         </div>
 
         <!-- special characters -->
-        <div class="bigbox d-flex flex-column">
+        <div id="special-characters-container">
             <span id="special-characters-title">Special characters</span>
             <select id="special-characters"></select>
-            <div id="characters" class="flex-grow-1"></div>
+            <div id="characters"></div>
         </div>
 
-        <!-- footer -->
-        <footer>
-            <form action="/donate" method="post" target="blank">
-                <input type="hidden" name="cmd" value="_s-xclick" />
-                <input type="hidden" name="hosted_button_id" value="QEM6B9Z67JKGS" />
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" title="Help to keep the server online and donate via PayPal." alt="Donate with PayPal button" />
-            </form>
-            <span>Copyright &copy; 2020 Bartłomiej Grochowski</span>
-        </footer>
-
     </main>
+
+    <footer>
+        <form action="/donate" method="post" target="blank">
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input type="hidden" name="hosted_button_id" value="QEM6B9Z67JKGS" />
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" name="submit" title="Help to keep the server online and donate via PayPal." alt="Donate with PayPal button" />
+        </form>
+        <span>Copyright &copy; 2020-2023 Bartłomiej Grochowski</span>
+    </footer>
+
+    </div>
 
 
     <!-- JS Libs -->
