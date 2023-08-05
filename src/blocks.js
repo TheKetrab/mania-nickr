@@ -575,7 +575,7 @@ var InfinityBlocks = [
         "Celyan",
         "/blockimages/Stripes.jpg",
         "/blockimages/mini/Stripes_mini.jpg",
-        "/blocks/tm2020pipes.zip",
+        "/blocks/Stripes.zip",
         "25.07.2023",
         "4",
         [
