@@ -586,4 +586,17 @@ var InfinityBlocks = [
         ],
         "stadium"
     ),
+    new Block(
+        "Slope To Quarter Pipe",
+        "Chillaxe",
+        "/blockimages/Chillaxe_Slope_To_Quarter_Pipe.png",
+        "/blockimages/mini/Chillaxe_Slope_To_Quarter_Pipe_mini.png",
+        "/blocks/Chillaxe_Slope_To_Quarter_Pipe.zip",
+        "20.09.2023",
+        "1",
+        [
+            'Slope To Quarter Pipe'
+        ],
+        "stadium"
+    ),
 ];
