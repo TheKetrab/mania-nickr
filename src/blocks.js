@@ -599,4 +599,26 @@ var InfinityBlocks = [
         ],
         "stadium"
     ),
+<<<<<<< 0ad48867e3e05ea881c4e9df4e089fbb838a2d87
+=======
+	new Block(
+        "RPG TitlePack",
+        "Celyan",
+        "/blockimages/RPGPack.png",
+        "/blockimages/mini/RPGPack_mini.png",
+        "https://drive.google.com/file/d/1gLo_1Ee3EjZGXD9sEw8HaW466hXunjzN/view",
+        "7.10.2023",
+        "200",
+        [
+            'Wall',
+            'Window',
+			'Frame',
+			'Plat',
+			'PLMatch',
+			'PLR',
+			'PLRT'
+        ],
+        "any"
+    ),
+>>>>>>> fix link
 ];
