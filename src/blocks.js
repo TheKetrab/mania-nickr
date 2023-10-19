@@ -599,21 +599,12 @@ var InfinityBlocks = [
         ],
         "stadium"
     ),
-<<<<<<< 0ad48867e3e05ea881c4e9df4e089fbb838a2d87
-<<<<<<< 0ad48867e3e05ea881c4e9df4e089fbb838a2d87
-=======
-=======
->>>>>>> RPGPack
 	new Block(
         "RPG TitlePack",
         "Celyan",
         "/blockimages/RPGPack.png",
         "/blockimages/mini/RPGPack_mini.png",
-<<<<<<< 0ad48867e3e05ea881c4e9df4e089fbb838a2d87
         "https://drive.google.com/file/d/1gLo_1Ee3EjZGXD9sEw8HaW466hXunjzN/view",
-=======
-        "/blocks/RPGPack.rar",
->>>>>>> RPGPack
         "7.10.2023",
         "200",
         [
@@ -627,8 +618,4 @@ var InfinityBlocks = [
         ],
         "any"
     ),
-<<<<<<< 0ad48867e3e05ea881c4e9df4e089fbb838a2d87
->>>>>>> fix link
-=======
->>>>>>> RPGPack
 ];
