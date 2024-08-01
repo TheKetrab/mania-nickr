@@ -618,4 +618,31 @@ var InfinityBlocks = [
         ],
         "any"
     ),
+	new Block(
+        "Coast Blocks Pack (Unlimiter 2.0)",
+        "ketrab",
+        "/blockimages/CoastBlocksPack.jpg",
+        "/blockimages/mini/CoastBlocksPack_mini.jpg",
+        "/blocks/CoastBlocksPack.zip",
+        "1.08.2024",
+        "15",
+        [
+            'CoastCornicheTransitionToSlope1',
+            'CoastCornicheTransitionToSlope1Mirror',
+			'CoastCornicheTransitionToSlope2',
+			'CoastCornicheTransitionToSlope2Mirror',
+			'CoastCornicheChange',
+			'CoastCornicheChangeMirror',
+			'CoastCornichePeninsula',
+			'CoastCornicheToPeninsula',
+			'CoastCornicheToPeninsulaMirror',
+			'CoastCornicheY',
+			'CoastCornicheCheckpoint',
+			'CoastCornicheCheckpointMirror',
+			'CoastCornicheCornerNoFence',
+			'CoastCornicheTurbo',
+			'CoastCornicheTurboMirror'
+        ],
+        "coast"
+    ),
 ];
